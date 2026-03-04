@@ -21,6 +21,15 @@ const BRAZIL_GEOJSON_URL = 'https://raw.githubusercontent.com/codeforamerica/cli
 const MAP_WIDTH = 800;
 const MAP_HEIGHT = 800;
 
+const CATEGORY_LABELS: Record<Category, string> = {
+  cultura: 'Culture',
+  natureza: 'Nature',
+  gastronomia: 'Gastronomy',
+  historia: 'History',
+  city: 'City',
+  state: 'State',
+};
+
 // --- Components ---
 
 const Header = ({ 
@@ -108,7 +117,7 @@ const Header = ({
                       <div>
                         <p className="text-sm font-bold">{pin.name}</p>
                         <p className="text-[10px] text-[#009B3A]/60 uppercase tracking-wider font-bold">
-                          {pin.level === 1 ? 'Region' : pin.level === 2 ? 'State' : 'Tourist Spot'}
+                          {pin.level === 1 ? 'Region' : CATEGORY_LABELS[pin.category]}
                         </p>
                       </div>
                     </button>
@@ -602,7 +611,7 @@ export default function App() {
     } else {
       setSelectedPin(null);
       setTimeout(() => {
-        alert(`Content under construction: Only Pedra do Sal, Pelourinho, and MASP are available in the demo.`);
+        alert(`Content under construction: Only "Pedra do Sal", "Pelourinho", and "MASP" are available in the demo.`);
       }, 500);
     }
   };
