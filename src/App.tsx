@@ -117,7 +117,7 @@ const Header = ({
                       <div>
                         <p className="text-sm font-bold">{pin.name}</p>
                         <p className="text-[10px] text-[#009B3A]/60 uppercase tracking-wider font-bold">
-                          {pin.level === 1 ? 'Region' : CATEGORY_LABELS[pin.category]}
+                          {pin.level === 1 ? 'State' : CATEGORY_LABELS[pin.category]}
                         </p>
                       </div>
                     </button>
